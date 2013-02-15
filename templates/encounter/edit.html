@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block css_files %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "css/encounter/edit.css" %}" />
+{% endblock %}
+
+{% block center_content %}
+<div class="row-fluid">
+  <h3 id="encounter-metadata" class="span12" data-encounter-id="{{ encounter.id }}">{{ encounter.name }}</h3>
+</div>
+<div class="row-fluid">
+  <ul id="entity-list" class="media-list span12">
+    {% for entity in entities %}
+    {% include "encounter/entity.html" with entity=entity only %}
+    {% endfor %}
+  </ul>
+</div>
+<div class="row-fluid">
+  <button id="btn-create-entity" data-toggle="modal" data-target="#create-entity-modal" class="btn btn-primary">Add New Entity</button>
+</div>
+
+{% include "encounter/create-entity-modal.html" %}
+
+<ul id="entity-html-template" class="hide">
+  {% include "encounter/entity.html" %}
+</ul>
+
+{% endblock %}
+
+{% block js_files %}
+{{ block.super }},
+"{% static "js/encounter/edit.js" %}"
+{% endblock %}

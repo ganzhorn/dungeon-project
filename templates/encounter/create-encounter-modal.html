@@ -1,0 +1,16 @@
+<div id="create-encounter-modal" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3 id="create-encounter-title">Create New Encounter</h3>
+  </div>
+  <div class="modal-body">
+    <form id="create-encounter-form">
+      {% csrf_token %}
+      {{ newEncounterForm.as_p }}
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button id="button-save-new-encounter" class="btn btn-primary">Save Encounter</button>
+    <button class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>

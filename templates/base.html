@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Dungeon Project{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load staticfiles %}
+    {% block css_files %}
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/main/sitewide.css" %}" />
+    {% endblock %}
+    {% block headjs %}
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.load.min.js"></script>
+    {% endblock %}
+  </head>
+
+  <body>
+    {% block body_content %}
+    <div class="container-fluid">
+      {% block main_heading %}
+      <div class="row-fluid">
+	<h1 id="main-heading" class="span12">Dungeon Project</h1>
+      </div>
+      {% endblock %}
+      {% block center_content %}
+      <div class="row-fluid">
+	<p>point and laugh at the guy who left this empty</p>
+      </div>
+      {% endblock %}
+    </div>
+    {% endblock %}
+
+    {% block end_js %}
+    <script type="text/javascript">
+      head.js(
+          {% block js_files %}
+          "http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js",
+          "{% static "js/plugins/jquery.cookie.js" %}",
+          "{% static "bootstrap/js/bootstrap.min.js" %}",
+          "{% static "underscore/underscore-min.js" %}",
+          "{% static "backbone/backbone-min.js" %}",
+          "{% static "js/sitewide.js" %}",
+          "{% static "js/encounter/models.js" %}",
+          "{% static "js/encounter/views.js" %}"
+          {% endblock %}
+      );
+    </script>
+    {% endblock %}
+  </body>
+</html>

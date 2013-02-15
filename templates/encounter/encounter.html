@@ -1,0 +1,11 @@
+<li class="media" data-encounter-id="{{ encounter.id }}">
+  <a class="encounter-link" href="edit/{{ encounter.id }}/">
+    <div class="pull-left media-body">
+        <h4 class="media-heading"><span class="encounter-name">{{ encounter.name }}</span> <span class="label label-inverse encounter-campaign">{{ encounter.campaign }}</span></h4>
+        <div class="encounter-description">{{ encounter.description }}</div>
+    </div>
+    <div class="pull-right btn-group center-vertical">
+        <button class="btn btn-danger button-delete-encounter">Delete</button>
+    </div>
+  </a>
+</li>
